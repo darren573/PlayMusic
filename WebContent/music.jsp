@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/function.js"></script>
 </head>
 <body>
-<audio id="audio" src="music/1.mp3"></audio>
+<audio id="audio" src="music/1.mp3" loop="loop"></audio>
 <div>
 <a id="pp" href="#" flag="0"><img height="50" src="images/pro.png"></a>
 </div>

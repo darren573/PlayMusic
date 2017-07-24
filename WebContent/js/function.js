@@ -42,10 +42,13 @@ function timeupdate(){
 	//获得播放的长度
 	var left=Math.floor(ct/du*500)+"px";
 	$(".playball").css("left",left);
-	
 }
 function clickPro(e,obj){
 	var l=e.clientX-obj.offsetLeft;
 	$(".playball").css("left",l);
 	a.currentTime=(l/500)*a.duration;
+}
+function loop(){
+	var b=document.getElementById("audio");
+	b.loop="loop";
 }
