@@ -23,7 +23,7 @@
 }
 .hide{
 	width:500px;
-	height:100px;
+	height:150px;
 	text-align:center;
 	display:none;
 	border:solid 2px black;
@@ -33,4 +33,27 @@
 	background-color:#0af5f5;
 	text-align:center;
 	border:solid 2px black;
+}
+.playtable{
+	width:500px;
+	height:160px;
+	font-size:15px;
+	color: white;
+}
+.pt{
+	border-collapse: collapse;
+	background-color:#848485; 
+}
+.pt tr{
+	text-align:center;
+}
+.pt td{
+	height:25px;
+	border-bottom: 1px solid white;
+}
+.pt tr:HOVER{
+	background-color:orange; 
+}
+.here{
+	background-color:orange; 
 }

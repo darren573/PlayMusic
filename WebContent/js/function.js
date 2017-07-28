@@ -1,4 +1,5 @@
 var a=null;
+var flag=null;
 $(function(){//主方法，所有方法逻辑执行完成之后再执行
 	a=document.getElementById("audio");
 	//添加播放的监听时间
@@ -6,7 +7,7 @@ $(function(){//主方法，所有方法逻辑执行完成之后再执行
 	//点击播放按钮的事件
 	$("#pp").click(function(){
 		//获得播放状态
-		var flag = $(this).attr("flag");
+		flag = $(this).attr("flag");
 		if(flag=='0'){
 			a.play();
 			//获得播放的图片对象
@@ -15,12 +16,40 @@ $(function(){//主方法，所有方法逻辑执行完成之后再执行
 			$(this).attr("flag","1");
 			//获得当前播放了多少秒,一共多少秒
 		}else{
+			a.pause();
 			//获得播放的图片对象
 			$(this).find("img").attr("src","images/pro.png");
 			//把flag设置成0
 			$(this).attr("flag","0");
-			a.pause();
 		}
+	})
+	$(".playtable a").click(function(){
+		//获得点击播放的MP3的链接地址
+		 var loc=$(this).attr("mp3");
+		 //设置HTML5的音频播放地址
+		 $("#audio").attr("src",loc);
+		 //删除所有tr的背景
+		 $("table tr").removeClass("here")
+		 //获得当前行
+		 $(this).parent().parent().addClass("here");
+		 $(" td a img").attr("src","images/pro.png");
+		 $(this).find("img").attr("src","images/play.jpg");
+		 
+		 
+		 $("#pp").click();
+		 var flag= $("#pp").attr("flag");
+		 if(flag=='0'){
+			 $("#pp").click();
+		 }
+		a.play();
+	})
+	$("#next").click(function(){
+		var tr =$("tbody").find("tr[class='here']");
+		tr.next("tr").find("a").click();
+	})
+	$("#last").click(function(){
+		var tr =$("tbody").find("tr[class='here']");
+		tr.prev("tr").find("a").click();
 	})
 })
 function timeupdate(){
