@@ -1,5 +1,4 @@
-//页面加载的时候获得音频对象
-	 var a=null;
+var a=null;
 $(function(){//主方法，所有方法逻辑执行完成之后再执行
 	a=document.getElementById("audio");
 	//添加播放的监听时间
@@ -14,9 +13,7 @@ $(function(){//主方法，所有方法逻辑执行完成之后再执行
 			$(this).find("img").attr("src","images/play.jpg");
 			//把flag设置成1
 			$(this).attr("flag","1");
-			//获得当前播放了多少秒，一共多少秒
-			
-			
+			//获得当前播放了多少秒,一共多少秒
 		}else{
 			//获得播放的图片对象
 			$(this).find("img").attr("src","images/pro.png");
@@ -24,7 +21,6 @@ $(function(){//主方法，所有方法逻辑执行完成之后再执行
 			$(this).attr("flag","0");
 			a.pause();
 		}
-		
 	})
 })
 function timeupdate(){
@@ -43,11 +39,13 @@ function timeupdate(){
 	var left=Math.floor(ct/du*500)+"px";
 	$(".playball").css("left",left);
 }
+//拖拽
 function clickPro(e,obj){
 	var l=e.clientX-obj.offsetLeft;
 	$(".playball").css("left",l);
 	a.currentTime=(l/500)*a.duration;
 }
+//循环播放
 function loop(){
 	var b=document.getElementById("audio");
 	b.loop="loop";
